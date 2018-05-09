@@ -1,0 +1,44 @@
+---
+layout: default
+---
+
+<div class="container">
+  <div class="filter">
+    <input type="radio" id="tag-0" class="filter-tag" name="filter-radio" hidden checked>
+    <input type="radio" id="tag-1" class="filter-tag" name="filter-radio" hidden>
+    <input type="radio" id="tag-2" class="filter-tag" name="filter-radio" hidden>
+    <input type="radio" id="tag-3" class="filter-tag" name="filter-radio" hidden>
+    
+    <div class="filter-nav container">
+      <div class="columns">
+        <div class="column col-10 col-sm-12 col-mx-auto">
+          <label class="chip c-hand" for="tag-0">Todos</label>
+          <label class="chip c-hand" for="tag-1">Básico</label>
+          <label class="chip c-hand" for="tag-2">Intermediário</label>
+          <label class="chip c-hand" for="tag-3">Avançado</label>
+        </div>  
+      </div>
+    </div>
+    
+    <div class="filter-body columns">
+      {% for query in site.data.sparql %}
+      <div class="filter-item column col-10 col-sm-12 col-mx-auto mb-2" data-tag="tag-{{ query.level }}">
+        <div class="card ">
+          <div class="card-header">
+            <div class="card-title h5" id="{{ query.title | url_encode }}"><a href="#{{ query.title | url_encode }}">{{ query.title }}</a></div>
+            <div class="card-subtitle">
+              <strong>Endpoint:</strong> <a href="{{ query.endpoint }}">{{ query.endpoint }}</a>
+            </div>
+          </div>
+          <div class="card-body">
+            <pre class="code" data-lang="SPARQL"><code>{{ query.query }}</pre></code>
+          </div>
+          <div class="card-footer">
+            <p><strong>Objetivo:</strong> {{ query.goal }}</p>
+          </div>
+        </div>
+      </div>            
+      {% endfor %}
+    </div>
+  </div>
+</div>
