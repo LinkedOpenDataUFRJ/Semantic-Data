@@ -42,17 +42,17 @@
   goal: Obter nós do tipo foaf:Person cujo a data de nascimento seja após 01/01/2000
   level: 2
   
- - title: Pessoas encontradas na DBpediaPT que estão vivas.
-   endpoint: http://pt.dbpedia.org/sparql
-   query: |+
-     PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-     PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-     PREFIX dbo: <http://dbpedia.org/ontology/>
-     SELECT * WHERE {
-       ?x rdf:type foaf:Person.
-       optional{?x dbo:deathPlace ?place.}
-       filter (!bound(?place)).
-     } 
-     LIMIT 10000
+- title: Pessoas encontradas na DBpediaPT que estão vivas.
+  endpoint: http://pt.dbpedia.org/sparql
+  query: |+
+    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+    PREFIX dbo: <http://dbpedia.org/ontology/>
+    SELECT * WHERE {
+      ?x rdf:type foaf:Person.
+      optional{?x dbo:deathPlace ?place.}
+      filter (!bound(?place)).
+    } 
+    LIMIT 10000
   goal: Encontrar nós de natureza Person e obter o local de morte, se possuir através do optional. Finalmente filtrar para obter somente as pessoas sem local de morte, ou seja, vivas
   level: 2
