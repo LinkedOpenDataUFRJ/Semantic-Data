@@ -70,7 +70,7 @@ $primary-color: #0026a3;
 
 /*! Spectre.css Icons v#{$version} | MIT License | github.com/picturepan2/spectre */
 // Icons
-// @import "spectre/icons/icons-core";
-// @import "spectre/icons/icons-navigation";
+@import "spectre/icons/icons-core";
+@import "spectre/icons/icons-navigation";
 // @import "spectre/icons/icons-action";
 // @import "spectre/icons/icons-object";
