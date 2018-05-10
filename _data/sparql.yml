@@ -41,8 +41,8 @@
     LIMIT 10
   goal: Obter nós do tipo foaf:Person cujo a data de nascimento seja após 01/01/2000
   level: 2
-  
-- title: Pessoas encontradas na DBpediaPT que estão vivas.
+
+- title: Pessoas encontradas na DBpediaPT que estão vivas
   endpoint: http://pt.dbpedia.org/sparql
   query: |+
     PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -56,3 +56,14 @@
     LIMIT 10000
   goal: Encontrar nós de natureza Person e obter o local de morte, se possuir através do optional. Finalmente filtrar para obter somente as pessoas sem local de morte, ou seja, vivas
   level: 2
+
+- title: Informações sobre o Elemento Quimico Carbono
+  endpoint: http://pt.dbpedia.org/sparql
+  query: |+
+    PREFIX dbr:<http://dbpedia.org/resource/>
+    SELECT * 
+    WHERE {
+       dbr:Carbon ?predicate ?object.
+    }
+  goal: Listar os predicados e os objetos do recurso Carbono
+  level: 1
