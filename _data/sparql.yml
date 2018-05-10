@@ -35,7 +35,8 @@
     WHERE {
       ?name rdf:type foaf:Person.
       ?name dbo:birthDate ?data.
-      FILTER  (?data > "2000-01-01T00:00:00Z"^^xsd:dateTime).
+      FILTER (?data > "2000-01-01T00:00:00Z"^^xsd:dateTime).
+      FILTER (?data < "3000-01-01T00:00:00Z"^^xsd:dateTime).
     } 
     LIMIT 10
   goal: Obter nós do tipo foaf:Person cujo a data de nascimento seja após 01/01/2000
