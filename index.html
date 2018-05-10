@@ -31,7 +31,7 @@ layout: default
             </div>
           </div>
           <div class="card-body">
-            <pre class="code" data-lang="SPARQL"><code>{{ query.query }}</pre></code>
+            <pre class="code" data-lang="SPARQL"><code>{{ query.query | escape }}</pre></code>
           </div>
           <div class="card-footer">
             <p><strong>Objetivo:</strong> {{ query.goal }}</p>
