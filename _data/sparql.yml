@@ -67,3 +67,22 @@
     }
   goal: Listar os predicados e os objetos do recurso Carbono
   level: 1
+
+- title : Participantes da Eurovision
+  endpoint: http://pt.dbpedia.org/sparql
+  query: |+
+    PREFIX dbo: <http://dbpedia.org/ontology/>
+    PREFIX dbr: <http://dbpedia.org/resource/>
+    PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+    PREFIX dbp: <http://dbpedia.org/property/>
+    SELECT * WHERE{
+  
+        ?uri foaf:name ?nome.
+        ?uri dbo:birthPlace ?place.
+        ?uri dbp:title dbr:Eurovision_Song_Contest.
+        ?uri dbo:activeYearsStartYear ?ano
+        FILTER regex(?nome,"B")
+        FILTER (year(?ano) > 1940 && year(?ano)<1980)
+    }order by ?nome
+  goal: Listar todos os participantes da Eurovision entre 1940 e 1980
+  level: 3
