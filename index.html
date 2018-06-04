@@ -21,8 +21,46 @@ layout: default
     </div>
     
     <div class="filter-body columns">
-      {% for query in site.data.sparql %}
-      <div class="filter-item column col-10 col-sm-12 col-mx-auto mb-2" data-tag="tag-{{ query.level }}">
+      {% for query in site.data.beginner.sparql %}
+      <div class="filter-item column col-10 col-sm-12 col-mx-auto mb-2" data-tag="tag-1">
+        <div class="card ">
+          <div class="card-header">
+            <div class="card-title h5" id="{{ query.title | url_encode }}"><a href="#{{ query.title | url_encode }}">{{ query.title }}</a></div>
+            <div class="card-subtitle">
+              <strong>Endpoint:</strong> <a href="{{ query.endpoint }}" target="_blank">{{ query.endpoint }}</a>
+            </div>
+          </div>
+          <div class="card-body">
+            <pre class="code" data-lang="SPARQL"><code>{{ query.query | escape }}</code></pre>
+            <a href="http://yasgui.org/#query={{ query.query | url_encode |url_param_escape }}&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint={{ query.endpoint | url_encode | url_param_escape }}&requestMethod=POST&tabTitle=Query&headers=%7B%7D&outputFormat=table" target="_blank"><button class="btn btn-success">Testar</button></a>
+          </div>
+          <div class="card-footer">
+            <p><strong>Objetivo:</strong> {{ query.goal }}</p>
+          </div>
+        </div>
+      </div>            
+      {% endfor %}
+      {% for query in site.data.intermediate.sparql %}
+      <div class="filter-item column col-10 col-sm-12 col-mx-auto mb-2" data-tag="tag-2">
+        <div class="card ">
+          <div class="card-header">
+            <div class="card-title h5" id="{{ query.title | url_encode }}"><a href="#{{ query.title | url_encode }}">{{ query.title }}</a></div>
+            <div class="card-subtitle">
+              <strong>Endpoint:</strong> <a href="{{ query.endpoint }}" target="_blank">{{ query.endpoint }}</a>
+            </div>
+          </div>
+          <div class="card-body">
+            <pre class="code" data-lang="SPARQL"><code>{{ query.query | escape }}</code></pre>
+            <a href="http://yasgui.org/#query={{ query.query | url_encode |url_param_escape }}&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint={{ query.endpoint | url_encode | url_param_escape }}&requestMethod=POST&tabTitle=Query&headers=%7B%7D&outputFormat=table" target="_blank"><button class="btn btn-success">Testar</button></a>
+          </div>
+          <div class="card-footer">
+            <p><strong>Objetivo:</strong> {{ query.goal }}</p>
+          </div>
+        </div>
+      </div>            
+      {% endfor %}
+      {% for query in site.data.advanced.sparql %}
+      <div class="filter-item column col-10 col-sm-12 col-mx-auto mb-2" data-tag="tag-3">
         <div class="card ">
           <div class="card-header">
             <div class="card-title h5" id="{{ query.title | url_encode }}"><a href="#{{ query.title | url_encode }}">{{ query.title }}</a></div>

@@ -1,0 +1,33 @@
+- title: Políticos brasileiros
+  endpoint: https://dbpedia.org/sparql
+  query: |+
+    PREFIX dbo: <http://dbpedia.org/ontology/>
+    PREFIX dbr: <http://dbpedia.org/resource/>
+    SELECT ?name
+    WHERE {
+      ?name dbo:profession|dbo:occupation dbr:Politician.
+      ?name dbo:nationality dbr:Brazil.
+    }
+  goal: Retornar a uri dos políticos brasileiros que estão presentes no banco de dados da dbpedia
+
+- title: Nomes
+  endpoint: https://dbpedia.org/sparql
+  query: |+
+    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+    SELECT ?name
+    WHERE {
+      ?name rdf:type foaf:Person.
+    } 
+    LIMIT 10
+  goal: Obter nós do tipo foaf:Person
+
+- title: Informações sobre o Elemento Quimico Carbono
+  endpoint: http://pt.dbpedia.org/sparql
+  query: |+
+    PREFIX dbr:<http://dbpedia.org/resource/>
+    SELECT * 
+    WHERE {
+       dbr:Carbon ?predicate ?object.
+    }
+  goal: Listar os predicados e os objetos do recurso Carbono
