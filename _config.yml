@@ -9,3 +9,6 @@ url: "https://linkedopendataufrj.github.io" # the base hostname & protocol for y
 
 # Build settings
 markdown: kramdown
+
+sass:
+  style: compressed
