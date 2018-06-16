@@ -8,7 +8,7 @@ layout: default
     <input type="radio" id="tag-1" class="filter-tag" name="filter-radio" hidden>
     <input type="radio" id="tag-2" class="filter-tag" name="filter-radio" hidden>
     <input type="radio" id="tag-3" class="filter-tag" name="filter-radio" hidden>
-    
+
     <div class="filter-nav container">
       <div class="columns">
         <div class="column col-10 col-sm-12 col-mx-auto">
@@ -16,10 +16,10 @@ layout: default
           <label class="chip c-hand" for="tag-1">Básico</label>
           <label class="chip c-hand" for="tag-2">Intermediário</label>
           <label class="chip c-hand" for="tag-3">Avançado</label>
-        </div>  
+        </div>
       </div>
     </div>
-    
+
     <div class="filter-body columns">
       {% for query in site.data.beginner.sparql %}
       <div class="filter-item column col-10 col-sm-12 col-mx-auto mb-2" data-tag="tag-1">
@@ -32,13 +32,13 @@ layout: default
           </div>
           <div class="card-body">
             <pre class="code" data-lang="SPARQL"><code>{{ query.query | escape }}</code></pre>
-            <a href="http://yasgui.org/#query={{ query.query | url_encode |url_param_escape }}&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint={{ query.endpoint | url_encode | url_param_escape }}&requestMethod=POST&tabTitle=Query&headers=%7B%7D&outputFormat=table" target="_blank" rel="noopener"><button class="btn btn-success">Testar</button></a>
+            <a href="http://yasgui.org/#query={{ query.query | url_encode |url_param_escape }}&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint={{ query.endpoint | url_encode | url_param_escape }}&requestMethod=POST&tabTitle=Query&headers=%7B%7D&outputFormat=table" target="_blank" rel="noopener"><button class="btn btn-success" aria-labelledby="Testar consulta Sparql">Testar</button></a>
           </div>
           <div class="card-footer">
             <p><strong>Objetivo:</strong> {{ query.goal }}</p>
           </div>
         </div>
-      </div>            
+      </div>
       {% endfor %}
       {% for query in site.data.intermediate.sparql %}
       <div class="filter-item column col-10 col-sm-12 col-mx-auto mb-2" data-tag="tag-2">
@@ -51,13 +51,13 @@ layout: default
           </div>
           <div class="card-body">
             <pre class="code" data-lang="SPARQL"><code>{{ query.query | escape }}</code></pre>
-            <a href="http://yasgui.org/#query={{ query.query | url_encode |url_param_escape }}&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint={{ query.endpoint | url_encode | url_param_escape }}&requestMethod=POST&tabTitle=Query&headers=%7B%7D&outputFormat=table" target="_blank" rel="noopener"><button class="btn btn-success">Testar</button></a>
+            <a href="http://yasgui.org/#query={{ query.query | url_encode |url_param_escape }}&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint={{ query.endpoint | url_encode | url_param_escape }}&requestMethod=POST&tabTitle=Query&headers=%7B%7D&outputFormat=table" target="_blank" rel="noopener"><button class="btn btn-success" aria-labelledby="Testar consulta Sparql">Testar</button></a>
           </div>
           <div class="card-footer">
             <p><strong>Objetivo:</strong> {{ query.goal }}</p>
           </div>
         </div>
-      </div>            
+      </div>
       {% endfor %}
       {% for query in site.data.advanced.sparql %}
       <div class="filter-item column col-10 col-sm-12 col-mx-auto mb-2" data-tag="tag-3">
@@ -70,20 +70,20 @@ layout: default
           </div>
           <div class="card-body">
             <pre class="code" data-lang="SPARQL"><code>{{ query.query | escape }}</code></pre>
-            <a href="http://yasgui.org/#query={{ query.query | url_encode |url_param_escape }}&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint={{ query.endpoint | url_encode | url_param_escape }}&requestMethod=POST&tabTitle=Query&headers=%7B%7D&outputFormat=table" target="_blank" rel="noopener"><button class="btn btn-success">Testar</button></a>
+            <a href="http://yasgui.org/#query={{ query.query | url_encode |url_param_escape }}&contentTypeConstruct=text%2Fturtle&contentTypeSelect=application%2Fsparql-results%2Bjson&endpoint={{ query.endpoint | url_encode | url_param_escape }}&requestMethod=POST&tabTitle=Query&headers=%7B%7D&outputFormat=table" target="_blank" rel="noopener"><button class="btn btn-success" aria-labelledby="Testar consulta Sparql">Testar</button></a>
           </div>
           <div class="card-footer">
             <p><strong>Objetivo:</strong> {{ query.goal }}</p>
           </div>
         </div>
-      </div>            
+      </div>
       {% endfor %}
     </div>
   </div>
 </div>
 
 <a href="#top">
-  <button class="btn btn-primary circle" style="position: fixed; bottom: 20px; right: 20px;">
+  <button class="btn btn-primary circle" aria-labelledby="Topo da página" style="position: fixed; bottom: 20px; right: 20px;">
     <i class="icon icon-arrow-up"></i>
   </button>
 </a>
