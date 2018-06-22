@@ -33,7 +33,7 @@
   goal: Listar os predicados e os objetos do recurso Carbono
   
 - title : Jogadores de futebol melhores do ano
-  endpoint: http://pt.dbpedia.org/sparql
+  endpoint: http://dbpedia.org/sparql
   query: |+
     PREFIX rdf:        <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
     PREFIX umbel-rc: <http://umbel.org/umbel/rc/>
