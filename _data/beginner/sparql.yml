@@ -31,3 +31,21 @@
        dbr:Carbon ?predicate ?object.
     }
   goal: Listar os predicados e os objetos do recurso Carbono
+  
+- title : Jogadores de futebol melhores do ano
+  endpoint: http://pt.dbpedia.org/sparql
+  query: |+
+    PREFIX rdf:        <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX umbel-rc: <http://umbel.org/umbel/rc/>
+    PREFIX rdfs:       <http://www.w3.org/2000/01/rdf-schema#>
+    PREFIX dct:        <http://purl.org/dc/terms/>
+    PREFIX dbc:        <http://dbpedia.org/resource/Category:>
+    SELECT *
+    WHERE{
+      ?uri rdf:type umbel-rc:SoccerPlayer.
+      ?uri dct:subject dbc:European_Footballer_of_the_Year_winners.
+      ?uri rdfs:label ?label.
+      filter langMatches(lang(?label),"PT").
+    }
+  goal: Listar os jogadores que já foram considerados os melhores do ano  
+  
