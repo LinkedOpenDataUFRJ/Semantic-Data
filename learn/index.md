@@ -17,6 +17,44 @@ Inicialmente haverão três partes: Os dados, que trata de explicar como os dado
 
 
 Projetos europeus : http://www.smartopendata.eu/partners
+
 Linked Data :http://linkeddata.org/
+
 Transparência em governos : https://conferences.oreilly.com/gov2-international
+
+
+# Os dados - Parte 1
+
+Nesse parte do conteúdo será tratada a forma na qual os dados trabalhados nas buscas são estruturados e sua natureza. O conhecimento do formato se faz necessário para compreender a estrutura das buscas que serão explicitadas nas partes subsequentes.
+As buscas feitas em SPARQL obtém os dados que tem relação com as características exigidas na confecção da mesma. Enquanto em bancos do tipo relacional são retornadas linhas de dados como em planilhas, a linguagem em questão trabalha com os dados triplificados que são diferenciados, principalmente em seu armazenamento.
+
+Uma base de dados triplificados trabalha com endereços web conhecidos como IRI (Internationalized Resource Identifier). Esses identificam cada dado de forma única, ou seja, fazem o papel da chave primária dos dados relacionais. 
+Um elemento primordial a ser explicado é o conceito de tripla. Esse define o modo como os dados se apresentam nessas bases em questão. Basicamente, se tratam de um conjunto de sujeito, predicado e objeto. Assim, haverá sempre um elemento em questão, um sujeito, que possuirá um atributo ou dado de sua posse, um objeto, que se conecta ao sujeito possuindo um significado definido, ou seja, um predicado. De tal forma pode-se simplificar pelo seguinte diagrama :
+
+
+
+![Tripla](https://i.imgur.com/MutOT26.png)
+
+
+Como mostrado, um sujeito possui um objeto associado por meio de um predicado. Da mesma forma, um sujeito pode possuir vários objetos relacionados ao mesmo. Como exemplo clarificador pode-se formatar os dados de uma certa pessoa que possui um nome e uma idade, bem como uma profissão por exemplo. A seguir uma demonstração da transformação desse exemplo nesse formato, ou seja, a triplificação:
+
+![Exemplo_Tripla](https://i.imgur.com/mEaFcpU.png)
+
+Como é possível perceber a estrutura garante uma boa flexibilidade, podendo ao passar do tempo ser expandido o quanto se sabe, tem de informação, a respeito de um ou mais elementos do banco triplificado. Esse formato triplificado é conhecido como RDF(Resource Description Framework) podendo ser codificado em várias linaguagens de programação como XML e Turtle, futuramente mostradas.
+
+
+
+
+
+Referências:
+
+ SPARQL : https://www.w3.org/TR/rdf-sparql-query/
+ 
+ IRI : https://www.w3.org/TR/rdf11-concepts/#dfn-iri
+ 
+ Tripla : https://www.w3.org/TR/rdf11-concepts/#dfn-rdf-triple
+ 
+ RDF : https://www.w3.org/RDF/
+ 
+Acessado em 13/09/2018
 
