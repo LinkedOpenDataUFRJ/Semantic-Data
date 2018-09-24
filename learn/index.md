@@ -1,9 +1,11 @@
 ---
 layout: page
 ---
-[Introdução](https://github.com/LinkedOpenDataUFRJ/Semantic-Data/blob/dev/learn/index.md#introdu%C3%A7%C3%A3o-1)
+[Introdução](./index.md#introdu%C3%A7%C3%A3o-1)
 ---
-[Os dados - parte 1](https://github.com/LinkedOpenDataUFRJ/Semantic-Data/blob/dev/learn/index.md#os-dados---parte-1-1)
+[Os dados - parte 1](./index.md#os-dados---parte-1-1)
+---
+[Os dados - parte 2](./index.md#os-dados---parte-2--c%C3%B3digo-rdf)
 ---
 
 # Introdução
