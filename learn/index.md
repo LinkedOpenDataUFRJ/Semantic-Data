@@ -3,6 +3,8 @@ layout: page
 ---
 [Introdução](https://github.com/LinkedOpenDataUFRJ/Semantic-Data/blob/dev/learn/index.md#introdu%C3%A7%C3%A3o)
 ---
+[Os dados - parte 1](https://github.com/LinkedOpenDataUFRJ/Semantic-Data/blob/dev/learn/index.md#os-dados---parte-1)
+---
 
 # Introdução
 
