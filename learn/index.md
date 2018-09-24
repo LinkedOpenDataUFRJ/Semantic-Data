@@ -113,3 +113,83 @@ Um elemento de certa forma curioso que surgiu foi o prefixo definido pela palavr
 
 # Aula 3 - SPARQL
 
+Nesta aula serão exibidos os conteúdos relacionados à linguagem de busca SPARQL. Essa se assemelha a SQL, usada em bancos de dados relacionais. 
+
+A linguagem SPARQL começou a ser estruturada em 2004 com um primeiro rascunho em 12 de outubro. Contudo, a primeira versão estável só surgiu em 2008. Essa foi criada voltada para a nova web, conhecida como 3.0, na qual a semântica é muito mais aplicada e os dados recebem maior valor e carga de significado, semântica. 
+
+A criação da linguagem em questão foi feita com o intuito de explorar a estrutura de triplas RDF para obter não só os dados armazenados como possíveis combinações entre os conteúdos de somente uma ou muitas bases, explorando as mais diversas propriedades dos dados.
+
+As buscas podem ser analisadas por partes: 
+
+1.Variáveis
+
+2.Cláusulas
+
+  - SELECT
+
+  - WHERE
+
+3.Extras
+
+  - FILTER
+
+  - OPTIONAL
+
+
+## 1.Variáveis
+
+As variáveis apresentam um formato próprio, são iniciadas com uma interrogação e são os elementos não definidos da busca onde representarão as mais diversas URI’s que se encaixem nos parâmetros da busca.
+
+Ex:
+
+```sparql
+?sujeito ?predicado ?objeto
+```
+
+## 2.Cláusulas:
+
+As cláusulas que definem os pedidos sendo feitos em uma busca, essas que compõem o corpo e o sentido de cada operação desse tipo.
+
+### SELECT
+
+Tal como no modelo relacional, ou seja, em SQL, SELECT define que elementos processados na consulta serão exibidos, ou seja, quais variáveis terão seus valores mostrados.
+
+Ex:
+
+```sparql
+SELECT ?sujeito ?objeto
+````
+
+### WHERE
+
+Essa cláusula é muito importante, pois nela é que são definidos os padrões de triplas buscados, ou seja, o que realmente está sendo procurado e quais variáveis serão usadas para armazenar cada uma dessas informações.
+
+Ex:
+```sparql
+SELECT ?sujeito ?objeto
+WHERE{
+	?sujeito ?predicado ?objeto.
+}
+````
+## Extras
+
+Essa parte é referente a operações mais refinadas que podem ser feitas. Até o instante dados, conteúdo pode ser buscado e obtido, mas com o refinamento será possível facilitar a eliminação de casos não desejados, ou restringir melhor a ação de busca.
+
+### FILTER
+
+Uma função existente em SPARQL que permite realizar outras funções dentro de si para estipular tipos de padrões a serem filtrados, obtidos dos resultados retornados a partir das cláusulas anteriormente mencionadas.
+
+Ex:
+
+```sparql
+SELECT ?sujeito ?objeto
+WHERE{
+	?sujeito ?predicado ?objeto.
+	?sujeito ex:nome ?nome.
+	FILTER langMatches(lang(?nome),”EN”).
+}
+````
+A busca em questão obtém sujeitos com predicados e seus objetos, mostrando somente os sujeitos e seus objetos. Contudo, somente aparecerão aqueles que tem seu nome registrado no Inglês.
+
+
+
