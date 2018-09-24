@@ -7,6 +7,8 @@ layout: page
 ---
 [Os dados - parte 2](./index.md#os-dados---parte-2--c%C3%B3digo-rdf)
 ---
+[Aula 3 - SPARQL](./index.md#aula-3---sparql)
+---
 
 # Introdução
 
