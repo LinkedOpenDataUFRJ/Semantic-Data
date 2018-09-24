@@ -33,12 +33,12 @@ Um elemento primordial a ser explicado é o conceito de tripla. Esse define o mo
 
 
 
-![Tripla](https://i.imgur.com/MutOT26.png)
+![Tripla](https://github.com/LinkedOpenDataUFRJ/Semantic-Data/blob/dev/learn/Os%20dados%20-%20Parte%201_0_0.png)
 
 
 Como mostrado, um sujeito possui um objeto associado por meio de um predicado. Da mesma forma, um sujeito pode possuir vários objetos relacionados ao mesmo. Como exemplo clarificador pode-se formatar os dados de uma certa pessoa que possui um nome e uma idade, bem como uma profissão por exemplo. A seguir uma demonstração da transformação desse exemplo nesse formato, ou seja, a triplificação:
 
-![Exemplo_Tripla](https://i.imgur.com/mEaFcpU.png)
+![Exemplo_Tripla](https://github.com/LinkedOpenDataUFRJ/Semantic-Data/blob/dev/learn/Os%20dados%20-%20Parte%201_1_1.png)
 
 Como é possível perceber a estrutura garante uma boa flexibilidade, podendo ao passar do tempo ser expandido o quanto se sabe, tem de informação, a respeito de um ou mais elementos do banco triplificado. Esse formato triplificado é conhecido como RDF(Resource Description Framework) podendo ser codificado em várias linaguagens de programação como XML e Turtle, futuramente mostradas.
 
