@@ -69,4 +69,47 @@ Nessa segunda parte referente aos dados, serão discutidas as codificações dos
   
 Como mencionado, os dados triplificados consistem o formato RDF, que determinam a estrutura de grafo. Contudo, esses devem ser codificados em linguagens para serem utilizados e consumidos em máquinas. Os principais formatos são o Turtle e o XML.
   
-Primeiramente será abordada a codificação Turtle(Terse RDF Triple Language). Essa linguagem, feita de modo que a leitura por humanos seja de melhor compreensão, é responsável por organizar os dados fazendo os relacionamentos das triplas. 
+Primeiramente será abordada a codificação Turtle(Terse RDF Triple Language). Essa linguagem, feita de modo que a leitura por humanos seja de melhor compreensão, é responsável por organizar os dados fazendo os relacionamentos das triplas. Essa linguagem simplesmente representa pela agregação de triplas de URI's os elementos a serem armazenados, sendo referentes a sujeitos, predicados e objetos.
+
+Ex:
+
+```turtle
+@prefix ex:http://exemplo.dominio.com/
+
+<ex:sujeito> <ex:predicado> <ex:objeto>.
+
+```
+
+Assim o exemplo mostrado na aula anterior pode ser representado da seguinte forma:
+
+```turtle
+@prefix ex:http://exemplo.dominio.com/
+
+<ex:Maria> <ex:idade> 30^^xsd:int.
+<ex:Maria> <ex:profissao> <ex:Medica>.
+
+```
+
+Como é possível ver foram representadas as triplas que definem as informações de idade e profissão referentes ao sujeito Maria.
+
+A forma que foi mostrada é bem explícita e fácil de ser compreendida por um ser humano, mas esse formato ainda pode ser mais bem reduzido, aglutinando os elementos referentes a um mesmo sujeito em uma sequência de comandos, com ponto e vírgula em cada nova tripla e um ponto final na última tripla representada. 
+
+Ex:
+
+```turtle
+@prefix ex:http://exemplo.dominio.com/
+
+<ex:Maria> <ex:idade> 30^^xsd:int;
+           <ex:profissao> <ex:Medica>.
+
+```
+Como é possível perceber não foi necessário repetir o sujeito, pois na lista estarão todos os predicados e objetos referentes ao mesmo sujeito, cada um separado com um ponto e vírgula e no fim de todas as triplas desse sujeito um ponto indica o término.
+
+
+Um elemento de certa forma curioso que surgiu foi o prefixo definido pela palavra prefix logo no início. Como já comentado anteriormente as triplas se baseam em representações com URI's, logo devem ser usados endereços web grandes para cada um dos elementos. Isso geraria muito trabalho e um código pouco organizado, mas, para tal, existe a definição de prefixo, assim quando, como no exemplo, se tem ex:Maria, o endereço desse elemento é o endereço do prefixo mais o nome do elemento, assim o endereço mencionado seria http://exemplo.dominio.com/Maria. Os nomes que vem após o endereço do prefixo como Maria e profissão, são chamados de resources, ou seja, recursos, elementos presentes na base que estão sendo usados.
+
+
+
+
+# Aula 3 - SPARQL
+
