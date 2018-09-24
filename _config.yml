@@ -1,8 +1,8 @@
 title: Semantic Data
 description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  SematicData.org é o endereço onde a Web 3.0 toma mais sentido. 
+  Conteúdos disponibilizados de forma simples e interativa, 
+  destinado ao aprendizado referente à Web Semântica e a buscas SPARQL.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://semanticdata.org" # the base hostname & protocol for your site
 
