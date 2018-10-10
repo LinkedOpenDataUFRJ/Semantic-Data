@@ -80,8 +80,8 @@ layout: default
         </div>
       </div>
       {% endfor %}
-       {% for query in site.data.advanced.sparql %}
-      <div class="filter-item column col-10 col-sm-12 col-mx-auto mb-2" data-tag="tag-4">
+      {% for query in site.data.dbpedia.sparql %}
+      <div class="filter-item column col-10 col-sm-12 col-mx-auto mb-2" data-tag="tag-3">
         <div class="card ">
           <div class="card-header">
             <div class="card-title h5" id="{{ query.title | url_encode }}"><a href="#{{ query.title | url_encode }}">{{ query.title }}</a></div>
