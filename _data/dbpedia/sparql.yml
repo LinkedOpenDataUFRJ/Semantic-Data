@@ -1,4 +1,4 @@
-- title: Pessoas nascidas depois de 01/01/2000
+- title: teste1
   endpoint: https://dbpedia.org/sparql
   query: |+
     PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -9,8 +9,6 @@
     WHERE {
       ?name rdf:type foaf:Person.
       ?name dbo:birthDate ?data.
-      FILTER (?data > "2000-01-01T00:00:00Z"^^xsd:dateTime).
-      FILTER (?data < "3000-01-01T00:00:00Z"^^xsd:dateTime).
     } 
     LIMIT 10
-  goal: Obter nós do tipo foaf:Person cujo a data de nascimento seja após 01/01/2000
+  goal: teste1
