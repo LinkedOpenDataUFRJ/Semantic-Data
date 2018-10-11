@@ -13,7 +13,7 @@
     LIMIT 10
   goal: teste1
 
-- title: teste2
+- title: teste29
   endpoint:  https://dbpedia.org/sparql
   query: |+
     PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
