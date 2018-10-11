@@ -97,7 +97,7 @@
     PREFIX dbo:<http://dbpedia.org/ontology/>
     PREFIX xsd:<http://www.w3.org/2001/XMLSchema#>
     PREFIX foaf:<http://xmlns.com/foaf/0.1/>
-    Select DISTICT ?uri
+    Select DISTINCT ?uri
     Where {
     	?uri a foaf:Person.
 	?uri dbo:profession dbr:Politician.
