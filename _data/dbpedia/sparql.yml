@@ -234,6 +234,6 @@
     filter (?label=?nlabel)
   } 
     LIMIT 100
-  goal: Onservar os dados de sucessores políticos e perceber o cruzamento de dados de diferentes bases por meio de consultas federadas
+  goal: Observar os dados de sucessores políticos e perceber o cruzamento de dados de diferentes bases por meio de consultas federadas
 
 
