@@ -14,17 +14,226 @@
     LIMIT 10
   goal: teste1
 
-- title: teste29
+- title: Consulta1
+  endpoint: https://dbpedia.org/sparql
+  query: |+
+    PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX dbo:<http://dbpedia.org/ontology/>
+    PREFIX xsd:<http://www.w3.org/2001/XMLSchema#>
+    PREFIX foaf:<http://xmlns.com/foaf/0.1/>
+    Select DISTINCT ?type
+    Where {
+	    ?uri a ?type.
+    } 
+    LIMIT 10
+  goal: teste1
+
+- title: Consulta2
+  endpoint: https://dbpedia.org/sparql
+  query: |+
+    PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX dbo:<http://dbpedia.org/ontology/>
+    PREFIX xsd:<http://www.w3.org/2001/XMLSchema#>
+    PREFIX foaf:<http://xmlns.com/foaf/0.1/>
+    Select DISTINCT type
+    Where {
+	    ?uri a foaf:Person.
+      ?uri a ?type.
+    } 
+    LIMIT 10
+  goal: Visualizar que outras classes uma pessoa pode ter
+
+- title: Consulta3
   endpoint:  https://dbpedia.org/sparql
   query: |+
     PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
     PREFIX dbo:<http://dbpedia.org/ontology/>
     PREFIX xsd:<http://www.w3.org/2001/XMLSchema#>
     PREFIX foaf:<http://xmlns.com/foaf/0.1/>
-    SELECT ?name ?data
-    WHERE {
-      ?name rdf:type foaf:Person.
-      ?name dbo:birthDate ?data.
+    Select DISTINCT ?property
+    Where {
+	    ?uri a foaf:Person.
+	    ?uri ?property ?object.
     } 
     LIMIT 10
-  goal: teste1
+  goal: Visualizar as propriedades usadas em uma pessoa
+  
+- title: Consulta4
+  endpoint: https://dbpedia.org/sparql
+  query: |+
+    PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX dbo:<http://dbpedia.org/ontology/>
+    PREFIX xsd:<http://www.w3.org/2001/XMLSchema#>
+    PREFIX foaf:<http://xmlns.com/foaf/0.1/>
+    Select *
+    Where {
+	    ?uri a foaf:Person.
+	    ?uri dbo:profession dbr:Politician.
+	    ?uri dbo:nationality dbr:Brazil.
+    } 
+    LIMIT 10
+  goal: Visualizar resultado dos políticos brasileiros
+
+- title: Consulta5
+  endpoint: https://dbpedia.org/sparql
+  query: |+
+    PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX dbo:<http://dbpedia.org/ontology/>
+    PREFIX xsd:<http://www.w3.org/2001/XMLSchema#>
+    PREFIX foaf:<http://xmlns.com/foaf/0.1/>
+    Select *
+    Where {
+	    ?uri a foaf:Person.
+	    ?uri dbo:occupation dbr:Politician.
+	    ?uri dbo:nationality dbr:Brazil.
+    } 
+    LIMIT 10
+  goal: Observar a variação na modelagem dos dados
+
+- title: Consulta6
+  endpoint: https://dbpedia.org/sparql
+  query: |+
+    PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX dbo:<http://dbpedia.org/ontology/>
+    PREFIX xsd:<http://www.w3.org/2001/XMLSchema#>
+    PREFIX foaf:<http://xmlns.com/foaf/0.1/>
+    Select DISTICT ?uri
+    Where {
+	    ?uri a foaf:Person.
+	    ?uri dbo:profession dbr:Politician.
+	    ?uri dbo:birthPlace ?place.
+	    ?place dbo:country dbr:Brazil.
+    } 
+    LIMIT 10
+  goal: Visualizar os dados retornados, percebendo as nacionalidades obtidas indiretamente
+
+- title: Consulta7
+  endpoint: https://dbpedia.org/sparql
+  query: |+
+    PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX dbo:<http://dbpedia.org/ontology/>
+    PREFIX xsd:<http://www.w3.org/2001/XMLSchema#>
+    PREFIX foaf:<http://xmlns.com/foaf/0.1/>
+    SELECT DISTINCT ?politico ?nlabel
+    WHERE{
+      {
+        ?politico ?p dbr:Politician. filter(?p = dbo:profession || ?p = dbo:occupation)
+        ?politico dbo:nationality dbr:Brazil.
+        ?politico rdfs:label ?labeldb.
+      }
+      union
+      {
+        ?politico rdf:type yago:WikicatBrazilianPoliticians.
+        ?politico rdfs:label ?labeldb.
+      }
+      union
+      {
+        ?politico ?p dbr:Politician. FILTER(?p = dbo:profession || ?p = dbo:occupation).
+        ?politico dbo:birthPlace ?bp.
+        ?bp dbo:country dbr:Brazil.
+        ?politico rdfs:label ?labeldb.
+      }
+      FILTER langMatches(lang(?labeldb),"pt").
+      BIND (STR(?labeldb)AS ?nlabel).
+    } 
+    LIMIT 10
+  goal: Perceber a flexibilidade das bases e como melhorar resultados com uniões e elementos equivalentes em outras bases
+
+- title: Consulta8
+  endpoint: https://dbpedia.org/sparql
+  query: |+
+    PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX dbo:<http://dbpedia.org/ontology/>
+    PREFIX xsd:<http://www.w3.org/2001/XMLSchema#>
+    PREFIX foaf:<http://xmlns.com/foaf/0.1/>
+    SELECT ?politico ?nlabel ?refer
+    WHERE{
+      {
+        ?politico ?p dbr:Politician. filter(?p = dbo:profession || ?p = dbo:occupation)
+        ?politico dbo:nationality dbr:Brazil.
+        ?politico rdfs:label ?labeldb.
+        ?politico owl:sameAs ?refer.
+      }
+      union
+      {
+        ?politico rdf:type yago:WikicatBrazilianPoliticians.
+        ?politico rdfs:label ?labeldb.
+        ?politico owl:sameAs ?refer.
+      }
+      union
+      {
+        ?politico ?p dbr:Politician. FILTER(?p = dbo:profession || ?p = dbo:occupation).
+        ?politico dbo:birthPlace ?bp.
+        ?bp dbo:country dbr:Brazil.
+        ?politico rdfs:label ?labeldb.
+        ?politico owl:sameAs ?refer.
+      }
+      FILTER langMatches(lang(?labeldb),"pt").
+      BIND (STR(?labeldb)AS ?nlabel).
+    } 
+    LIMIT 10
+  goal: Perceber os dados referentes, equivalentes existentes em outras bases
+
+- title: Consulta9
+  endpoint: https://dbpedia.org/sparql
+  query: |+
+    PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX dbo:<http://dbpedia.org/ontology/>
+    PREFIX xsd:<http://www.w3.org/2001/XMLSchema#>
+    PREFIX foaf:<http://xmlns.com/foaf/0.1/>
+    PREFIX dbr: <http://dbpedia.org/resource/>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    PREFIX yago: <http://yago-knowledge.org/resource/>
+    PREFIX wd: <http://www.wikidata.org/entity/>
+    PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+
+    select distinct ?politico ?labeldb ?name ?label ?sucessor ?sucessorNome where { 
+      service<http://dbpedia.org/sparql>{
+		    SELECT *
+        WHERE{
+          {
+            ?politico ?p dbr:Politician. filter(?p = dbo:profession || ?p = dbo:occupation)
+            ?politico dbo:nationality dbr:Brazil.
+            ?politico rdfs:label ?labeldb.
+            optional{?politico dbo:successor ?sucessor.
+                    ?sucessor rdfs:label ?sucessorNome.
+                    FILTER langMatches(lang(?sucessorNome),"pt").}
+          }
+          union
+          {
+            ?politico rdf:type yago:WikicatBrazilianPoliticians.
+            ?politico rdfs:label ?labeldb.
+            optional{?politico dbo:successor ?sucessor.
+                    ?sucessor rdfs:label ?sucessorNome.
+                    FILTER langMatches(lang(?sucessorNome),"pt").} 
+          }
+          union
+          {
+            ?politico ?p dbr:Politician. FILTER(?p = dbo:profession || ?p = dbo:occupation).
+            ?politico dbo:birthPlace ?bp.
+            ?bp dbo:country dbr:Brazil.
+            ?politico rdfs:label ?labeldb.
+            optional{?politico dbo:successor ?sucessor.
+                    ?sucessor rdfs:label ?sucessorNome.
+                    FILTER langMatches(lang(?sucessorNome),"pt").}
+          }
+          FILTER langMatches(lang(?labeldb),"pt").
+          BIND (STR(?labeldb)AS ?nlabel).
+       }
+    }
+    service<https://query.wikidata.org/sparql>{
+        SELECT DISTINCT ?name (sample(?strLabel)as ?label) 
+        WHERE {
+  			  ?name wdt:P106 wd:Q82955.
+  			  ?name wdt:P27 wd:Q155.
+  			  ?name rdfs:label ?nameLabel.
+  			  filter langMatches(lang(?nameLabel),"PT")
+          bind (str(?nameLabel) as ?strLabel)
+		    }group by ?name
+    }
+    filter (?label=?nlabel)
+  } 
+    LIMIT 100
+  goal: Onservar os dados de sucessores políticos e perceber o cruzamento de dados de diferentes bases por meio de consultas federadas
+
+
