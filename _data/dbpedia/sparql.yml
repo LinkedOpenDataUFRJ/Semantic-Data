@@ -189,7 +189,7 @@
 
     select distinct ?politico ?labeldb ?name ?label ?sucessor ?sucessorNome where { 
       service<http://dbpedia.org/sparql>{
-	SELECT *
+        SELECT *
         WHERE{
           {
             ?politico ?p dbr:Politician. filter(?p = dbo:profession || ?p = dbo:occupation)
@@ -224,11 +224,11 @@
     service<https://query.wikidata.org/sparql>{
         SELECT DISTINCT ?name (sample(?strLabel)as ?label) 
         WHERE {
-		?name wdt:P106 wd:Q82955.
-		?name wdt:P27 wd:Q155.
-		?name rdfs:label ?nameLabel.
-		filter langMatches(lang(?nameLabel),"PT")
-		bind (str(?nameLabel) as ?strLabel)
+	  ?name wdt:P106 wd:Q82955.
+	  ?name wdt:P27 wd:Q155.
+	  ?name rdfs:label ?nameLabel.
+	  filter langMatches(lang(?nameLabel),"PT")
+	  bind (str(?nameLabel) as ?strLabel)
 	}group by ?name
     }
     filter (?label=?nlabel)
