@@ -78,7 +78,7 @@ Ex:
 ```turtle
 @prefix ex:http://exemplo.dominio.com/
 
-<ex:sujeito> <ex:predicado> <ex:objeto>.
+ex:sujeito ex:predicado ex:objeto.
 
 ```
 
@@ -87,8 +87,8 @@ Assim o exemplo mostrado na aula anterior pode ser representado da seguinte form
 ```turtle
 @prefix ex:http://exemplo.dominio.com/
 
-<ex:Maria> <ex:idade> 30^^xsd:int.
-<ex:Maria> <ex:profissao> <ex:Medica>.
+ex:Maria ex:idade 30^^xsd:int.
+ex:Maria ex:profissao ex:Medica.
 
 ```
 
@@ -101,8 +101,8 @@ Ex:
 ```turtle
 @prefix ex:http://exemplo.dominio.com/
 
-<ex:Maria> <ex:idade> 30^^xsd:int;
-           <ex:profissao> <ex:Medica>.
+ex:Maria ex:idade 30^^xsd:int;
+         ex:profissao ex:Medica.
 
 ```
 Como é possível perceber não foi necessário repetir o sujeito, pois na lista estarão todos os predicados e objetos referentes ao mesmo sujeito, cada um separado com um ponto e vírgula e no fim de todas as triplas desse sujeito um ponto indica o término.
