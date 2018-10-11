@@ -12,7 +12,23 @@
     } 
     LIMIT 10
   goal: teste1
-  
+
+- title: teste2
+  endpoint: https://dbpedia.org/sparql
+  query: |+
+    PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX dbo:<http://dbpedia.org/ontology/>
+    PREFIX xsd:<http://www.w3.org/2001/XMLSchema#>
+    PREFIX foaf:<http://xmlns.com/foaf/0.1/>
+    SELECT ?name ?data
+    WHERE {
+      ?name rdf:type foaf:Person.
+      ?name dbo:birthDate ?data.
+    } 
+    LIMIT 10
+  goal: teste1
+
+
 - title: Consulta1
   endpoint: https://dbpedia.org/sparql
   query: |+
