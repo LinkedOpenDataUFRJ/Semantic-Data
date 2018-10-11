@@ -223,7 +223,7 @@
     }
     service<https://query.wikidata.org/sparql>{
         SELECT DISTINCT ?name (sample(?strLabel)as ?label) 
-        WHERE {
+	WHERE {
 	  ?name wdt:P106 wd:Q82955.
 	  ?name wdt:P27 wd:Q155.
 	  ?name rdfs:label ?nameLabel.
