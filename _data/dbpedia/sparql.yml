@@ -37,8 +37,8 @@
     PREFIX foaf:<http://xmlns.com/foaf/0.1/>
     Select DISTINCT type
     Where {
-	    ?uri a foaf:Person.
-      ?uri a ?type.
+    	?uri a foaf:Person.
+	?uri a ?type.
     } 
     LIMIT 10
   goal: Visualizar que outras classes uma pessoa pode ter
@@ -52,8 +52,8 @@
     PREFIX foaf:<http://xmlns.com/foaf/0.1/>
     Select DISTINCT ?property
     Where {
-	    ?uri a foaf:Person.
-	    ?uri ?property ?object.
+    	?uri a foaf:Person.
+	?uri ?property ?object.
     } 
     LIMIT 10
   goal: Visualizar as propriedades usadas em uma pessoa
@@ -67,9 +67,9 @@
     PREFIX foaf:<http://xmlns.com/foaf/0.1/>
     Select *
     Where {
-	    ?uri a foaf:Person.
-	    ?uri dbo:profession dbr:Politician.
-	    ?uri dbo:nationality dbr:Brazil.
+    	?uri a foaf:Person.
+	?uri dbo:profession dbr:Politician.
+	?uri dbo:nationality dbr:Brazil.
     } 
     LIMIT 10
   goal: Visualizar resultado dos políticos brasileiros
@@ -83,9 +83,9 @@
     PREFIX foaf:<http://xmlns.com/foaf/0.1/>
     Select *
     Where {
-	    ?uri a foaf:Person.
-	    ?uri dbo:occupation dbr:Politician.
-	    ?uri dbo:nationality dbr:Brazil.
+    	?uri a foaf:Person.
+	?uri dbo:occupation dbr:Politician.
+	?uri dbo:nationality dbr:Brazil.
     } 
     LIMIT 10
   goal: Observar a variação na modelagem dos dados
@@ -99,10 +99,10 @@
     PREFIX foaf:<http://xmlns.com/foaf/0.1/>
     Select DISTICT ?uri
     Where {
-	    ?uri a foaf:Person.
-	    ?uri dbo:profession dbr:Politician.
-	    ?uri dbo:birthPlace ?place.
-	    ?place dbo:country dbr:Brazil.
+    	?uri a foaf:Person.
+	?uri dbo:profession dbr:Politician.
+	?uri dbo:birthPlace ?place.
+	?place dbo:country dbr:Brazil.
     } 
     LIMIT 10
   goal: Visualizar os dados retornados, percebendo as nacionalidades obtidas indiretamente
@@ -189,7 +189,7 @@
 
     select distinct ?politico ?labeldb ?name ?label ?sucessor ?sucessorNome where { 
       service<http://dbpedia.org/sparql>{
-		    SELECT *
+	SELECT *
         WHERE{
           {
             ?politico ?p dbr:Politician. filter(?p = dbo:profession || ?p = dbo:occupation)
@@ -224,12 +224,12 @@
     service<https://query.wikidata.org/sparql>{
         SELECT DISTINCT ?name (sample(?strLabel)as ?label) 
         WHERE {
-  			  ?name wdt:P106 wd:Q82955.
-  			  ?name wdt:P27 wd:Q155.
-  			  ?name rdfs:label ?nameLabel.
-  			  filter langMatches(lang(?nameLabel),"PT")
-          bind (str(?nameLabel) as ?strLabel)
-		    }group by ?name
+		?name wdt:P106 wd:Q82955.
+		?name wdt:P27 wd:Q155.
+		?name rdfs:label ?nameLabel.
+		filter langMatches(lang(?nameLabel),"PT")
+		bind (str(?nameLabel) as ?strLabel)
+	}group by ?name
     }
     filter (?label=?nlabel)
   } 
