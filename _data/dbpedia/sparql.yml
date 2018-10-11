@@ -9,6 +9,7 @@
     WHERE {
       ?name rdf:type foaf:Person.
       ?name dbo:birthDate ?data.
+      ?name dbo:nationality ?nationality.
     } 
     LIMIT 10
   goal: teste1
