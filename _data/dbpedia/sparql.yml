@@ -1,4 +1,4 @@
-- title: teste1
+- title: Data de nascimento
   endpoint: https://dbpedia.org/sparql
   query: |+
     PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -12,7 +12,7 @@
       ?name dbo:nationality ?nationality.
     } 
     LIMIT 10
-  goal: teste1
+  goal: Listar pessoas e suas datas de nascimento
 
 - title: Consulta1
   endpoint: https://dbpedia.org/sparql
